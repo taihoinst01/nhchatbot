@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/cjlogisticsChatBot/v15/Server/sqlite3
+/LOG
+/.vs/cjlogisticsChatBot/DesignTimeBuild
+/.vs/nhchatbot/v15/Server/sqlite3

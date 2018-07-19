@@ -1,0 +1,59 @@
+C:\Users\user\source\repos\nhchatbot\bin\Bot Application.dll.config
+C:\Users\user\source\repos\nhchatbot\bin\Bot Application.dll
+C:\Users\user\source\repos\nhchatbot\bin\Bot Application.pdb
+C:\Users\user\source\repos\nhchatbot\bin\Autofac.dll
+C:\Users\user\source\repos\nhchatbot\bin\Castle.Core.dll
+C:\Users\user\source\repos\nhchatbot\bin\Chronic.dll
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.Bot.Builder.Autofac.dll
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.Bot.Builder.dll
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.Bot.Connector.dll
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.IdentityModel.Protocols.dll
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.Rest.ClientRuntime.dll
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\user\source\repos\nhchatbot\bin\Moq.dll
+C:\Users\user\source\repos\nhchatbot\bin\Newtonsoft.Json.dll
+C:\Users\user\source\repos\nhchatbot\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\user\source\repos\nhchatbot\bin\System.Net.Http.Formatting.dll
+C:\Users\user\source\repos\nhchatbot\bin\System.Web.Http.dll
+C:\Users\user\source\repos\nhchatbot\bin\System.Web.Http.WebHost.dll
+C:\Users\user\source\repos\nhchatbot\bin\Autofac.xml
+C:\Users\user\source\repos\nhchatbot\bin\Castle.Core.xml
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.Bot.Builder.xml
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.Bot.Builder.Autofac.xml
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.Bot.Connector.xml
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.IdentityModel.Protocols.xml
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.Rest.ClientRuntime.xml
+C:\Users\user\source\repos\nhchatbot\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\user\source\repos\nhchatbot\bin\Moq.pdb
+C:\Users\user\source\repos\nhchatbot\bin\Moq.xml
+C:\Users\user\source\repos\nhchatbot\bin\Newtonsoft.Json.xml
+C:\Users\user\source\repos\nhchatbot\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\user\source\repos\nhchatbot\bin\System.Net.Http.Formatting.xml
+C:\Users\user\source\repos\nhchatbot\bin\System.Web.Http.xml
+C:\Users\user\source\repos\nhchatbot\bin\System.Web.Http.WebHost.xml
+C:\Users\user\source\repos\nhchatbot\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\Users\user\source\repos\nhchatbot\bin\cs\Microsoft.Bot.Builder.resources.dll
+C:\Users\user\source\repos\nhchatbot\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+C:\Users\user\source\repos\nhchatbot\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\Users\user\source\repos\nhchatbot\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\Users\user\source\repos\nhchatbot\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\Users\user\source\repos\nhchatbot\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\Users\user\source\repos\nhchatbot\bin\it\Microsoft.Bot.Builder.resources.dll
+C:\Users\user\source\repos\nhchatbot\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\Users\user\source\repos\nhchatbot\bin\nl\Microsoft.Bot.Builder.resources.dll
+C:\Users\user\source\repos\nhchatbot\bin\pt-BR\Microsoft.Bot.Builder.resources.dll
+C:\Users\user\source\repos\nhchatbot\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\Users\user\source\repos\nhchatbot\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\Users\user\source\repos\nhchatbot\obj\Debug\nhChatBot.csprojAssemblyReference.cache
+C:\Users\user\source\repos\nhchatbot\obj\Debug\nhChatBot.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\nhchatbot\obj\Debug\nhChatBot.csproj.CopyComplete
+C:\Users\user\source\repos\nhchatbot\obj\Debug\Bot Application.dll
+C:\Users\user\source\repos\nhchatbot\obj\Debug\Bot Application.pdb
