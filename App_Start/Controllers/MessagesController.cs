@@ -276,28 +276,35 @@ namespace cjlogisticsChatBot
                     {
                         queryStr = orgMent;
                         //인텐트 엔티티 검출
-                        //캐시 체크
-                        cashOrgMent = Regex.Replace(orgMent, @"[^a-zA-Z0-9ㄱ-힣]", "", RegexOptions.Singleline);
-                        //cacheList = db.CacheChk(cashOrgMent.Replace(" ", ""));                     // 캐시 체크
 
+                        ///////////////////////////////////////////////////////////////////////////////////////////////
+                        //루이스 체크
                         JArray compositEntities = new JArray();
                         JArray entities = new JArray();
-
-                        //루이스 체크
                         cacheList.luisId = dbutil.GetMultiLUIS(orgMent);
 
                         entities = dbutil.GetEnities(orgMent);  //entities 가져오는 부분
-
-                        Debug.WriteLine("*******************************full entities : " + entities);
-                        String temp_entityType = "";
-                        for (var j = 0; j < entities.Count(); j++)
+                        //entities가 있을경우 luis 없을경우 rule
+                        if (!entities.Count.Equals(0))
                         {
-                            temp_entityType = temp_entityType + entities[j]["type"].ToString() + ", ";
+                            Debug.WriteLine("*******************************full entities : " + entities);
+                            String temp_entityType = "";
+                            for (var j = 0; j < entities.Count(); j++)
+                            {
+                                temp_entityType = temp_entityType + entities[j]["type"].ToString() + ", ";
+                            }
+                            temp_entityType = temp_entityType.Substring(0, temp_entityType.Length - 2);
+                            Debug.WriteLine("*******************************temp_entityType : " + temp_entityType);
+                            cacheList.luisEntities = temp_entityType;
                         }
-                        temp_entityType = temp_entityType.Substring(0, temp_entityType.Length - 2);
-                        Debug.WriteLine("*******************************temp_entityType : " + temp_entityType);
-                        cacheList.luisEntities = temp_entityType;
-
+                        else
+                        {
+                            //캐시 체크
+                            Debug.WriteLine("*******************************cache orgMent: " + orgMent);
+                            cashOrgMent = Regex.Replace(orgMent, @"[^a-zA-Z0-9ㄱ-힣]", "", RegexOptions.Singleline);
+                            cacheList = db.CacheChk(cashOrgMent.Replace(" ", ""));
+                        }
+                        ///////////////////////////////////////////////////////////////////////////////////////////////
 
                         luisId = cacheList.luisId;
                         luisIntent = cacheList.luisIntent;

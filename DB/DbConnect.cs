@@ -501,6 +501,7 @@ namespace cjlogisticsChatBot.DB
                 cmd.CommandText += "SELECT LUIS_ID, LUIS_INTENT, LUIS_ENTITIES, ISNULL(LUIS_INTENT_SCORE,'') AS LUIS_INTENT_SCORE FROM TBL_QUERY_ANALYSIS_RESULT WHERE LOWER(QUERY) = LOWER(@msg) AND RESULT ='H'";
 
                 cmd.Parameters.AddWithValue("@msg", orgMent);
+                Debug.WriteLine("* cmd.CommandText : " + cmd.CommandText);
                 rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
                 while (rdr.Read())
