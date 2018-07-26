@@ -281,29 +281,33 @@ namespace cjlogisticsChatBot
                         //루이스 체크
                         JArray compositEntities = new JArray();
                         JArray entities = new JArray();
-                        cacheList.luisId = dbutil.GetMultiLUIS(orgMent);
 
-                        entities = dbutil.GetEnities(orgMent);  //entities 가져오는 부분
+                        //cacheList.luisId = dbutil.GetMultiLUIS(orgMent);
+                        ///entities = dbutil.GetEnities(orgMent);  //entities 가져오는 부분
                         //entities가 있을경우 luis 없을경우 rule
-                        if (!entities.Count.Equals(0))
-                        {
-                            Debug.WriteLine("*******************************full entities : " + entities);
-                            String temp_entityType = "";
-                            for (var j = 0; j < entities.Count(); j++)
-                            {
-                                temp_entityType = temp_entityType + entities[j]["type"].ToString() + ", ";
-                            }
-                            temp_entityType = temp_entityType.Substring(0, temp_entityType.Length - 2);
-                            Debug.WriteLine("*******************************temp_entityType : " + temp_entityType);
-                            cacheList.luisEntities = temp_entityType;
-                        }
-                        else
-                        {
-                            //캐시 체크
-                            Debug.WriteLine("*******************************cache orgMent: " + orgMent);
-                            cashOrgMent = Regex.Replace(orgMent, @"[^a-zA-Z0-9ㄱ-힣]", "", RegexOptions.Singleline);
-                            cacheList = db.CacheChk(cashOrgMent.Replace(" ", ""));
-                        }
+                        //if (!entities.Count.Equals(0))
+                        //{
+                        //    Debug.WriteLine("*******************************full entities : " + entities);
+                        //    String temp_entityType = "";
+                        //    for (var j = 0; j < entities.Count(); j++)
+                        //    {
+                        //        temp_entityType = temp_entityType + entities[j]["type"].ToString() + ", ";
+                        //    }
+                        //    temp_entityType = temp_entityType.Substring(0, temp_entityType.Length - 2);
+                        //    Debug.WriteLine("*******************************temp_entityType : " + temp_entityType);
+                        //    cacheList.luisEntities = temp_entityType;
+                        //}
+                        //else
+                        //{
+                        //    //캐시 체크
+                        //    Debug.WriteLine("*******************************cache orgMent: " + orgMent);
+                        //    cashOrgMent = Regex.Replace(orgMent, @"[^a-zA-Z0-9ㄱ-힣]", "", RegexOptions.Singleline);
+                        //    cacheList = db.CacheChk(cashOrgMent.Replace(" ", ""));
+                        //}
+                        //캐시 체크
+                        Debug.WriteLine("*******************************cache orgMent: " + orgMent);
+                        cashOrgMent = Regex.Replace(orgMent, @"[^a-zA-Z0-9ㄱ-힣]", "", RegexOptions.Singleline);
+                        cacheList = db.CacheChk(cashOrgMent.Replace(" ", ""));
                         ///////////////////////////////////////////////////////////////////////////////////////////////
 
                         luisId = cacheList.luisId;
@@ -316,33 +320,33 @@ namespace cjlogisticsChatBot
 
                         ///////////////////////////////////////////////////////////////////////
                         //물량정보조회3의 entitites를 가격으로 임의 지정
-                        if (luisIntent.Equals("물량정보조회2") || luisIntent.Equals("물량정보조회3") || luisIntent.Equals("물량정보조회4") || luisIntent.Equals("물량정보조회5"))
-                        {
-                            cacheList.luisEntities = "가격";  //임시설정
-                        }
-                        if (luisIntent.Equals("문자안내재전송"))
-                        {
-                            cacheList.luisEntities = "reSendMsg";
-                        }
-                        if (luisIntent.Equals("등록신청"))
-                        {
-                            cacheList.luisEntities = "insertEtcComment";
-                        }
+                        //if (luisIntent.Equals("물량정보조회2") || luisIntent.Equals("물량정보조회3") || luisIntent.Equals("물량정보조회4") || luisIntent.Equals("물량정보조회5"))
+                        //{
+                        //    cacheList.luisEntities = "가격";  //임시설정
+                        //}
+                        //if (luisIntent.Equals("문자안내재전송"))
+                        //{
+                        //    cacheList.luisEntities = "reSendMsg";
+                        //}
+                        //if (luisIntent.Equals("등록신청"))
+                        //{
+                        //    cacheList.luisEntities = "insertEtcComment";
+                        //}
 
-                        //orgMent 변경(문자수신 시나리오)
-                        if (luisIntent.Equals("문자수신시나리오") || orgMent.Equals("예") || orgMent.Equals("아니오")
-                            || orgMent.Equals("예스") || orgMent.Equals("노") || orgMent.Equals("yes") || orgMent.Equals("no"))
-                        {
-                            luisIntent = "문자수신시나리오";
-                            cacheList.luisEntities = "smsScenario";
-                        }
+                        ////orgMent 변경(문자수신 시나리오)
+                        //if (luisIntent.Equals("문자수신시나리오") || orgMent.Equals("예") || orgMent.Equals("아니오")
+                        //    || orgMent.Equals("예스") || orgMent.Equals("노") || orgMent.Equals("yes") || orgMent.Equals("no"))
+                        //{
+                        //    luisIntent = "문자수신시나리오";
+                        //    cacheList.luisEntities = "smsScenario";
+                        //}
 
-                        if (luisIntent.Equals("물량그룹건수조회"))
-                        {
-                            cacheList.luisEntities = "groupperentity";
-                        }
+                        //if (luisIntent.Equals("물량그룹건수조회"))
+                        //{
+                        //    cacheList.luisEntities = "groupperentity";
+                        //}
 
-                        DButil.HistoryLog("luisEntities : " + luisEntities);
+                        //DButil.HistoryLog("luisEntities : " + luisEntities);
                         ///////////////////////////////////////////////////////////////////////
 
 
