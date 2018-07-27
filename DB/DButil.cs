@@ -785,6 +785,7 @@ namespace cjlogisticsChatBot.DB
                         {
                             Title = card.cardTitle,
                             Text = card.cardText,
+                            Subtitle = card.cardSubTitle,
                             Images = cardImages,
                             Buttons = cardButtons,
                             Card_division = cardDiv,
