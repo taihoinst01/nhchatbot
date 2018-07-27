@@ -823,7 +823,7 @@ namespace cjlogisticsChatBot.DB
                 cmd.CommandText += "  FROM  TBL_DLG_RELATION_LUIS                                                    ";
                 //cmd.CommandText += " WHERE  LUIS_ENTITIES = @entities                                                ";
                 cmd.CommandText += " WHERE  LUIS_INTENT = @intent                                                ";
-                cmd.CommandText += " AND  LUIS_ENTITIES = @entities                                                ";
+                cmd.CommandText += " AND  (SELECT RESULT FROM FN_ENTITY_ORDERBY_ADD(LUIS_ENTITIES)) = @entities ";
 
                 Debug.WriteLine("query : " + cmd.CommandText);
                 Debug.WriteLine("entity : " + entity);
