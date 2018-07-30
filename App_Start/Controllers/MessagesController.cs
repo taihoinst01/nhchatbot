@@ -343,8 +343,8 @@ namespace cjlogisticsChatBot
 
 
 
-                        String fullentity = db.SearchCommonEntities;
-                        DButil.HistoryLog("fullentity : " + fullentity);
+                        //String fullentity = db.SearchCommonEntities;
+                        //DButil.HistoryLog("fullentity : " + fullentity);
 
                         if (apiFlag.Equals("COMMON"))
                         {
