@@ -283,7 +283,7 @@ namespace cjlogisticsChatBot
                         cacheList = db.CacheChk(cashOrgMent.Replace(" ", ""));                     // 캐시 체크 (TBL_QUERY_ANALYSIS_RESULT 조회..)
 
                         //캐시에 없을 경우
-                        if (string.IsNullOrEmpty(cacheList.luisIntent) || string.IsNullOrEmpty(cacheList.luisEntities))
+                        if (cacheList.luisIntent == null || cacheList.luisEntities == null)
                         {
                             DButil.HistoryLog("cache none : " + orgMent);
                             Debug.WriteLine("cache none : " + orgMent);
@@ -355,7 +355,7 @@ namespace cjlogisticsChatBot
                         //if (relationList.Count > 0)
                         {
                             DButil.HistoryLog("relationList 조건 in ");
-                            if (relationList.Count > 0 && !string.IsNullOrEmpty(relationList[0].dlgApiDefine))
+                            if (relationList.Count > 0 && relationList[0].dlgApiDefine != null)
                             {
                                 if (relationList[0].dlgApiDefine.Equals("api testdrive"))
                                 {
@@ -380,7 +380,7 @@ namespace cjlogisticsChatBot
                         else
                         {
 
-                            if (string.IsNullOrEmpty(MessagesController.cacheList.luisIntent) || apiFlag.Equals("COMMON"))
+                            if (MessagesController.cacheList.luisIntent == null || apiFlag.Equals("COMMON"))
                             {
                                 apiFlag = "";
                             }
