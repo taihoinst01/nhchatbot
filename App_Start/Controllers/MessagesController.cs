@@ -345,6 +345,7 @@ namespace cjlogisticsChatBot
 
                         String fullentity = db.SearchCommonEntities;
                         DButil.HistoryLog("fullentity : " + fullentity);
+
                         if (apiFlag.Equals("COMMON"))
                         {
                             relationList = db.DefineTypeChkSpare(cacheList.luisIntent, cacheList.luisEntities);
@@ -445,7 +446,7 @@ namespace cjlogisticsChatBot
                                     }
                                     else if (luisIntent == "정보수집")
                                     {
-                                        info += "지역 : " + orgMent + ((Microsoft.Bot.Connector.HeroCard)tempAttachment.Content).Text;
+                                        info += "지역 : " + orgMent + " " + ((Microsoft.Bot.Connector.HeroCard)tempAttachment.Content).Text;
                                     }
 
                                     Debug.WriteLine("info===" + info + " " + ((Microsoft.Bot.Connector.HeroCard)tempAttachment.Content).Text);
