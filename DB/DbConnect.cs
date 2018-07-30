@@ -824,7 +824,7 @@ namespace cjlogisticsChatBot.DB
                 //cmd.CommandText += " WHERE  LUIS_ENTITIES = @entities                                                ";
                 cmd.CommandText += " WHERE  LUIS_INTENT = @intent                                                ";
                 //cmd.CommandText += " AND  (SELECT RESULT FROM FN_ENTITY_ORDERBY_ADD(LUIS_ENTITIES)) = @entities ";
-                cmd.CommandText += " AND  LUIS_ENTITIES = @entities ";
+                cmd.CommandText += " AND  LUIS_ENTITIES = (SELECT RESULT FROM FN_ENTITY_ORDERBY_ADD(@entities) ";
 
                 Debug.WriteLine("query : " + cmd.CommandText);
                 Debug.WriteLine("entity : " + entity);
