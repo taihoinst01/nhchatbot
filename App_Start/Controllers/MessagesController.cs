@@ -80,6 +80,8 @@ namespace cjlogisticsChatBot
         public static DbConnect db = new DbConnect();
         public static DButil dbutil = new DButil();
 
+        public static string info = "";
+
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
 
@@ -396,7 +398,7 @@ namespace cjlogisticsChatBot
                         {
 
                             //context.Call(new CommonDialog("", MessagesController.queryStr), this.ResumeAfterOptionDialog);
-
+                            
                             for (int m = 0; m < MessagesController.relationList.Count; m++)
                             {
                                 DialogList dlg = db.SelectDialog(MessagesController.relationList[m].dlgId);
@@ -426,8 +428,34 @@ namespace cjlogisticsChatBot
                                 }
                                 else
                                 {
-                                    //DLG 출력
+                                    //DLG 출력                                    
                                     tempAttachment = dbutil.getAttachmentFromDialog(dlg, activity);
+                                    
+                                    if (luisIntent == "통화가능시간")
+                                    {
+                                        info += "정보 : " + orgMent + "||\r\n";
+                                    }
+                                    else if (luisIntent == "연락처")
+                                    {
+                                        info += "통화가능시간 : " + orgMent + "||\r\n";
+                                    }
+                                    else if (luisIntent == "지역")
+                                    {
+                                        info += "연락처 : " + orgMent + "||\r\n";
+                                    }
+                                    else if (luisIntent == "정보수집")
+                                    {
+                                        info += "지역 : " + orgMent + ((Microsoft.Bot.Connector.HeroCard)tempAttachment.Content).Text;
+                                    }
+
+                                    Debug.WriteLine("info===" + info + " " + ((Microsoft.Bot.Connector.HeroCard)tempAttachment.Content).Text);
+                                    Debug.WriteLine("Title===" + ((Microsoft.Bot.Connector.HeroCard)tempAttachment.Content).Title);
+
+                                    if (((Microsoft.Bot.Connector.HeroCard)tempAttachment.Content).Text == "정보확인")
+                                    {
+                                        ((Microsoft.Bot.Connector.HeroCard)tempAttachment.Content).Text = info.Replace("정보확인", "");
+                                    }
+
                                     commonReply.Attachments.Add(tempAttachment);
 
                                 }
