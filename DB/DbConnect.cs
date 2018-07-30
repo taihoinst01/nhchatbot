@@ -848,49 +848,7 @@ namespace cjlogisticsChatBot.DB
                 }
             }
             return result;
-        }
-
-        public List<RelationList> DefineTypeChkSpare1( string entity)
-        {
-            SqlDataReader rdr = null;
-            List<RelationList> result = new List<RelationList>();
-            entity = Regex.Replace(entity, " ", "");
-            using (SqlConnection conn = new SqlConnection(connStr))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-                cmd.CommandText += "SELECT  LUIS_ID, LUIS_INTENT, LUIS_ENTITIES, ISNULL(DLG_ID,0) AS DLG_ID, DLG_API_DEFINE, API_ID ";
-                cmd.CommandText += "  FROM  TBL_DLG_RELATION_LUIS                                                    ";
-                //cmd.CommandText += " WHERE  LUIS_ENTITIES = @entities                                                ";
-                //cmd.CommandText += " WHERE  LUIS_INTENT = @intent                                                ";
-                //cmd.CommandText += " AND  (SELECT RESULT FROM FN_ENTITY_ORDERBY_ADD(LUIS_ENTITIES)) = @entities ";
-                cmd.CommandText += " WHERE  (SELECT RESULT FROM FN_ENTITY_ORDERBY_ADD(LUIS_ENTITIES)) = (SELECT RESULT FROM FN_ENTITY_ORDERBY_ADD(@entities)) ";
-
-                Debug.WriteLine("query : " + cmd.CommandText);
-                Debug.WriteLine("entity : " + entity);
-                //Debug.WriteLine("intent : " + intent);
-                //cmd.Parameters.AddWithValue("@intent", intent);
-                cmd.Parameters.AddWithValue("@entities", entity);
-
-                rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                while (rdr.Read())
-                {
-                    RelationList relationList = new RelationList();
-                    relationList.luisId = rdr["LUIS_ID"] as string;
-                    relationList.luisIntent = rdr["LUIS_INTENT"] as string;
-                    relationList.luisEntities = rdr["LUIS_ENTITIES"] as string;
-                    relationList.dlgId = Convert.ToInt32(rdr["DLG_ID"]);
-                    relationList.dlgApiDefine = rdr["DLG_API_DEFINE"] as string;
-                    //relationList.apiId = Convert.ToInt32(rdr["API_ID"] ?? 0);
-                    relationList.apiId = rdr["API_ID"].Equals(DBNull.Value) ? 0 : Convert.ToInt32(rdr["API_ID"]);
-                    //DBNull.Value
-                    result.Add(relationList);
-                }
-            }
-            return result;
-        }
-
+        }        
 
         //KSO END
 

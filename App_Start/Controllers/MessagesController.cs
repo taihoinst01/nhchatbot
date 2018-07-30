@@ -345,36 +345,14 @@ namespace cjlogisticsChatBot
 
                         String fullentity = db.SearchCommonEntities;
                         DButil.HistoryLog("fullentity : " + fullentity);
-                        if (!string.IsNullOrEmpty(fullentity) || !fullentity.Equals(""))
+
+                        if (apiFlag.Equals("COMMON"))
                         {
-                            if (!String.IsNullOrEmpty(luisEntities))
-                            {
-                                //entity 길이 비교
-                                if (fullentity.Length > luisEntities.Length || luisIntent == null || luisIntent.Equals(""))
-                                {
-                                    //DefineTypeChkSpare에서는 인텐트나 루이스아이디조건 없이 엔티티만 일치하면 다이얼로그 리턴
-                                    relationList = db.DefineTypeChkSpare1(fullentity);
-                                }
-                                else
-                                {
-                                    relationList = db.DefineTypeChk(MessagesController.luisId, MessagesController.luisIntent, MessagesController.luisEntities);
-                                }
-                            }
-                            else
-                            {
-                                relationList = db.DefineTypeChkSpare1(fullentity);
-                            }
+                            relationList = db.DefineTypeChkSpare(cacheList.luisIntent, cacheList.luisEntities);
                         }
                         else
                         {
-                            if (apiFlag.Equals("COMMON"))
-                            {
-                                relationList = db.DefineTypeChkSpare(cacheList.luisIntent, cacheList.luisEntities);
-                            }
-                            else
-                            {
-                                relationList = null;
-                            }
+                            relationList = null;
                         }
                         if (relationList != null)
                         //if (relationList.Count > 0)
