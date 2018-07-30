@@ -278,36 +278,26 @@ namespace cjlogisticsChatBot
                         //인텐트 엔티티 검출
 
                         ///////////////////////////////////////////////////////////////////////////////////////////////
-                        //루이스 체크
-                        JArray compositEntities = new JArray();
-                        JArray entities = new JArray();
-
-                        //cacheList.luisId = dbutil.GetMultiLUIS(orgMent);
-                        ///entities = dbutil.GetEnities(orgMent);  //entities 가져오는 부분
-                        //entities가 있을경우 luis 없을경우 rule
-                        //if (!entities.Count.Equals(0))
-                        //{
-                        //    Debug.WriteLine("*******************************full entities : " + entities);
-                        //    String temp_entityType = "";
-                        //    for (var j = 0; j < entities.Count(); j++)
-                        //    {
-                        //        temp_entityType = temp_entityType + entities[j]["type"].ToString() + ", ";
-                        //    }
-                        //    temp_entityType = temp_entityType.Substring(0, temp_entityType.Length - 2);
-                        //    Debug.WriteLine("*******************************temp_entityType : " + temp_entityType);
-                        //    cacheList.luisEntities = temp_entityType;
-                        //}
-                        //else
-                        //{
-                        //    //캐시 체크
-                        //    Debug.WriteLine("*******************************cache orgMent: " + orgMent);
-                        //    cashOrgMent = Regex.Replace(orgMent, @"[^a-zA-Z0-9ㄱ-힣]", "", RegexOptions.Singleline);
-                        //    cacheList = db.CacheChk(cashOrgMent.Replace(" ", ""));
-                        //}
                         //캐시 체크
-                        Debug.WriteLine("*******************************cache orgMent: " + orgMent);
                         cashOrgMent = Regex.Replace(orgMent, @"[^a-zA-Z0-9ㄱ-힣]", "", RegexOptions.Singleline);
-                        cacheList = db.CacheChk(cashOrgMent.Replace(" ", ""));
+                        cacheList = db.CacheChk(cashOrgMent.Replace(" ", ""));                     // 캐시 체크 (TBL_QUERY_ANALYSIS_RESULT 조회..)
+
+                        //캐시에 없을 경우
+                        if (cacheList.luisIntent == null || cacheList.luisEntities == null)
+                        {
+                            DButil.HistoryLog("cache none : " + orgMent);
+                            Debug.WriteLine("cache none : " + orgMent);
+                            //루이스 체크(intent를 루이스를 통해서 가져옴)
+                            //cacheList.luisId = dbutil.GetMultiLUIS(orgMent);
+                            //Debug.WriteLine("cacheList.luisId : " + cacheList.luisId);
+
+                            cacheList.luisIntent = dbutil.GetMultiLUIS(orgMent);
+                            Debug.WriteLine("cacheList.luisIntent : " + cacheList.luisIntent);
+                            //Debug.WriteLine("cacheList.luisEntitiesValue : " + cacheList.luisEntitiesValue);
+                            //cacheList = db.CacheDataFromIntent(cacheList.luisIntent, cacheList.luisEntitiesValue);
+
+
+                        }
                         ///////////////////////////////////////////////////////////////////////////////////////////////
 
                         luisId = cacheList.luisId;

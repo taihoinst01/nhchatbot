@@ -316,7 +316,7 @@ namespace cjlogisticsChatBot.DB
                         {
                             for (int i = 0; i < luisEntityCount; i++)
                             {
-                                //luisEntities = luisEntities + Luis["entities"][i]["entity"] + ",";
+                                luisEntities = luisEntities + Luis["entities"][i]["entity"] + ",";
 
                                 //luisType = (string)Luis["entities"][i]["type"];
                                 //luisType = Regex.Split(luisType, "::")[1];
